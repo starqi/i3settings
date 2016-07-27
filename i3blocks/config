@@ -1,37 +1,22 @@
 # https://github.com/vivien/i3blocks/wiki/Writing-Your-Own-Blocklet
 # http://www.pygtk.org/pygtk2reference/pango-markup-language.html
 
-# The top properties below are applied to every block, but can be overridden.
-# Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[bandwidth]
-command=echo "<i><span foreground=\"#999999\">`/usr/lib/i3blocks/bandwidth`</span></i>"
-#instance=eth0
-interval=5
-
 # Volume indicator
-#
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
 [volume]
 label=♪
 instance=Master
 interval=once
 signal=10
 
-# Battery indicator
-#
-# The battery instance defaults to 0.
-#[battery]
-#label=<b>BAT</b>
-#interval=30
+[bandwidth]
+command=echo "<span foreground=\"#bbbbcc\">`/usr/local/libexec/i3blocks/bandwidth`</span>" | tr [:upper:] [:lower:]
+interval=5
 
 # Date Time
-#
 [time]
-command=echo "<span foreground=\"#A2CACD\">`date '+%Y-%m-%d %H:%M:%S'`</span>"
+command=echo "<span foreground=\"#a4cfcf\">`date '+%a %m-%d %H:%M:%S'`</span>"; [[ $BLOCK_BUTTON == 1 ]] && gsimplecal &
 interval=5
