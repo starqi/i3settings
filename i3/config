@@ -135,9 +135,10 @@ client.urgent           #2f343a #900000 #ffffff #2877a5   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #2877a5   #0c0c0c
 
 # default workspaces
+assign [instance="Pidgin" class="Pidgin"] 2 Chat
+assign [instance="google-chrome" class="google-chrome"] 3 Web
 assign [instance="Steam" class="Steam"] 8 Games
 assign [instance="Mail" class="Thunderbird"] 9 Mail
-assign [instance="google-chrome" class="google-chrome"] 3 Web
 assign [instance="vlc" class="Vlc"] 10 VLC
 
 # start up list
