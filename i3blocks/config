@@ -5,7 +5,7 @@ separator_block_width=15
 markup=pango
 
 [vlc]
-command=echo "<i><span foreground=\"#ffffaa\">`${HOME}/.config/i3blocks/vlc-block`</span></i>"
+command=echo "<i><span foreground=\"#ffffaa\">`${HOME}/.config/i3blocks/vlc-block`.</span></i>"
 interval=10
 
 [accuweather]

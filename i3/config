@@ -1,7 +1,7 @@
 set $mod Mod4
 
 # pango prefix = Enable pango formatting
-font pango:Monospace 10
+font pango:Terminus 11
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -14,8 +14,8 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec i3-dmenu-desktop
-bindsym $mod+d exec j4-dmenu-desktop
-#bindsym $mod+d exec dmenu_run
+bindsym $mod+e exec j4-dmenu-desktop
+bindsym $mod+d exec dmenu_run
 
 # change focus
 bindsym $mod+h focus left
