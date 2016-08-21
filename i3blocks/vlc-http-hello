@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# https://wiki.videolan.org/documentation:modules/http_intf/
+
+PASSWORD=hello
+
+# ---- #
+
+vlc --extraintf=http --http-password ${PASSWORD}

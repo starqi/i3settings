@@ -1,22 +1,27 @@
 # https://github.com/vivien/i3blocks/wiki/Writing-Your-Own-Blocklet
 # http://www.pygtk.org/pygtk2reference/pango-markup-language.html
 
-command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-# Volume indicator
+[vlc]
+command=echo "<i><span foreground=\"#ffffaa\">`${HOME}/.config/i3blocks/vlc-block`</span></i>"
+interval=10
+
+[accuweather]
+command=echo "<span foreground=\"#aaffab\">`${HOME}/.config/i3blocks/accuweather-block`</span>"
+interval=1200
+
 [volume]
-label=♪
+command=/usr/lib/i3blocks/volume
 instance=Master
 interval=once
 signal=10
 
 [bandwidth]
-command=echo "<span foreground=\"#bbbbcc\">`/usr/local/libexec/i3blocks/bandwidth`</span>" | tr [:upper:] [:lower:]
+command=echo "<span foreground=\"#bbbbcc\">`/usr/lib/i3blocks/bandwidth`</span>" | tr [:upper:] [:lower:]
 interval=5
 
-# Date Time
 [time]
 command=echo "<span foreground=\"#a4cfcf\">`date '+%a %m-%d %H:%M:%S'`</span>"; [[ $BLOCK_BUTTON == 1 ]] && gsimplecal &
 interval=5

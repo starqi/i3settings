@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# https://wiki.videolan.org/documentation:modules/http_intf/
+
+PASSWORD=hello
+
+# ---- #
+
+get-tag() {
+  echo $1 | sed "s/\(.*<$2>\)\([^<>]*\)\(<\/$3>.*\)/\2/"
+}
+
+RESULT=$(curl -u ":${PASSWORD}" http://127.0.0.1:8080/requests/status.xml --connect-timeout 4 2>/dev/null)
+STATE=$(get-tag "${RESULT}" "state" "state")
+if [ "${STATE}" = 'playing' ]; then
+  TITLE=$(get-tag "${RESULT}" "info name='filename'" "info")
+  TITLE=$(echo "$TITLE " | sed "s/&amp;/\&/g" | cut -c-50)
+  echo $TITLE
+else
+  echo ..
+fi

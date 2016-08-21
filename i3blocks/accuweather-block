@@ -1,0 +1,15 @@
+#!/bin/bash
+
+URL="http://www.accuweather.com/en/ca/markham/l6g/weather-forecast/49578"
+
+# ---- #
+
+get-tag-fake() {
+  echo $1 | sed "s/\(.*<$2>\)\([^<>]*\)\(<$3>.*\)/\2/"
+}
+
+HTML=$(curl $URL --connect-timeout 10 2>/dev/null | tr --delete '\n' | sed 's/.*Currently//' | sed 's/Hourly.*//') 
+COND=$(get-tag-fake "$HTML" "span class=\"cond\"" "\/span")
+TEMP=$(get-tag-fake "$HTML" "strong class=\"temp\"" "span")
+
+echo "$TEMP° $COND"
